@@ -40,8 +40,15 @@ object AppViewModelProvider {
             )
         }
         // Initializer for ItemEntryViewModel
+
+        /*
+        menambahkan instance ItemsRepository sebagai parameter untuk membuat
+        ItemEntryViewModel menerima ItemsRepository dari AppContainer,
+        sehingga dapat mengakses fungsi-fungsi repository untuk operasi penyimpanan data
+
+         */
         initializer {
-            ItemEntryViewModel()
+            ItemEntryViewModel(inventoryApplication().container.itemsRepository)
         }
 
         // Initializer for ItemDetailsViewModel
@@ -55,6 +62,8 @@ object AppViewModelProvider {
         initializer {
             HomeViewModel()
         }
+
+
     }
 }
 
