@@ -16,11 +16,21 @@
 
 package com.example.inventory.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 
 /**
  * Entity data class represents a single row in the database.
+ *
+ * Mengubah data class menjadi menjadi data class dengan menggunakan @Entity. Hal ini
+ * diperlukan agar item dapat berfungsi sebagai entitas dalam database dengan table bernama
+ * "items" dan primary key yang di generate secara otomatis
  */
-class Item(
+
+@Entity(tableName = "items")
+data class Item(
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,
     val price: Double,
